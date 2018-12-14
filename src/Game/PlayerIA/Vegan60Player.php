@@ -17,14 +17,24 @@ class Vegan60Player extends Player
 
     public function getChoice()
     {
-	    $stats_me = $this->result->getStatsFor($this->mySide);
-	    $stats_op = $this->result->getStatsFor($this->opponentSide);
+	    // Attack on first round
 	    if ($this->result->getNbRound() == 0)
-		    return parent::foeChoice();
-	    $moyenne_foe_op = array_values($stats_op)[3] / $this->result->getNbRound();
-	    if ($moyenne_foe_op > 0.5)
-		    return parent::friendChoice();
-	    return parent::foeChoice();
+	    {
+	    	echo "{$this->prettyDisplay()}\n";
+		return parent::foeChoice();
+	    }
+	    // if he is friendly be friendly
+	    if ($this->result->getLastChoiceFor($this->opponentSide) == "friend")
+	    {
+	    	echo "{$this->prettyDisplay()}\n";
+		return parent::friendChoice();
+	    }
+	    // Otherwise attack
+	    else
+	    {
+	    	echo "{$this->prettyDisplay()}\n";
+		return parent::friendChoice();
+    	    }
         // -------------------------------------    -----------------------------------------------------
         // How to get my Last Choice           ?    $this->result->getLastChoiceFor($this->mySide) -- if 0 (first round)
         // How to get the opponent Last Choice ?    $this->result->getLastChoiceFor($this->opponentSide) -- if 0 (first round)
