@@ -20,7 +20,7 @@ class Vegan60Player extends Player
 	    
 	    if ($this->result->getNbRound() >= 0 && $this->result->getNbRound() <= 20)
 		return parent::friendChoice();
-	    if (($this->result->getStatsFor($this->opponentSide)["foe"] / $this->result->getNbRound() + 1) > 0,5)
+	    if (($this->result->getStatsFor($this->opponentSide)["foe"] / $this->result->getNbRound() + 1) > 0.5)
 		return parent::foeChoice();
 	    return parent::friendChoice();
 	    
