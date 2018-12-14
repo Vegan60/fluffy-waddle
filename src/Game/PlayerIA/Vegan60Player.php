@@ -9,7 +9,7 @@ use Hackathon\Game\Result;
  * @package Hackathon\PlayerIA
  * @author FlorentD
  */
-class VeganPlayer extends Player
+class Vegan60Player extends Player
 {
     protected $mySide;
     protected $opponentSide;
